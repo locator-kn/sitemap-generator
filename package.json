@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cradle": "^0.6.9",
+    "fs-extra": "^0.23.1",
     "sitemap": "^1.0.0"
   }
 }

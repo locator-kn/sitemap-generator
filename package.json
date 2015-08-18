@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "node module for generating a sitemap.xml for https://locator-app.com",
   "main": "index.js",
+  "repository": "https://github.com/locator-kn/sitemap-generator.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

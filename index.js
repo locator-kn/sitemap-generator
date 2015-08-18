@@ -1,6 +1,7 @@
 'use strict';
 var sm = require('sitemap');
 var cradle = require('cradle');
+var fse = require('fs-extra');
 
 var envVariables;
 var databaseName = 'app';
@@ -8,6 +9,8 @@ var url = 'localhost';
 var port = 5984;
 
 var smUrlRoot = 'https://locator-app.com';
+
+var absFilePath = '/home/locator/web/www/sitemap.xml';
 
 var relativeUrls = [];
 
@@ -38,9 +41,15 @@ Promise.all([buildLocationUrls(), buildTripUrls()])
             cacheTime: 600000,        // 600 sec - cache purge period
             urls: relativeUrls
         });
-        sitemap.toXML(function (xml) {
-            console.log(xml);
+        var xml = sitemap.toString();
+
+        fse.outputFile(absFilePath, xml, function (err) {
+            if (err) {
+                // Throw since it is a cron-job
+                throw new Error(err);
+            }
         });
+
     });
 
 

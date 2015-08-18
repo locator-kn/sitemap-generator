@@ -45,11 +45,13 @@ Promise.all([buildLocationUrls(), buildTripUrls()])
 
         fse.outputFile(absFilePath, xml, function (err) {
             if (err) {
-                // Throw since it is a cron-job
-                throw new Error(err);
+                console.error(err);
             }
         });
 
+    })
+    .catch(function(err) {
+        console.error(err);
     });
 
 

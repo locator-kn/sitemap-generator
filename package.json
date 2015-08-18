@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "cradle": "^0.6.9",
     "sitemap": "^1.0.0"
   }
 }
